@@ -1,39 +1,37 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   stack_print.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: pvital-m <pvital-m@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/05/13 11:02:17 by pvital-m          #+#    #+#             */
-/*   Updated: 2023/05/13 11:59:13 by pvital-m         ###   ########.fr       */
+/*   Created: 2023/05/13 11:22:33 by pvital-m          #+#    #+#             */
+/*   Updated: 2023/05/13 11:39:55 by pvital-m         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../includes/push_swap.h"
+#include "../../includes/push_swap.h"
 
-void	ft_error(void)
+void	print_stacks(void)
 {
-	ft_printf("Error\n");
+	t_list	*node_a;
+	t_list	*node_b;
+
+	node_a = stack_a()->head;
+	node_b = stack_b()->head;
+	printf("Stack A: ");
+	while (node_a)
+	{
+		printf("%d | ", *(int *)node_a->content);
+		node_a = node_a->next;
+	}
+	printf("\nStack B: ");
+	while (node_b)
+	{
+		printf("%d | ", *(int *)node_b->content);
+		node_b = node_b->next;
+	}
+	printf("\n");
 }
 
-void	ft_algorithm(void)
-{
-	if (stack_a()->size == 3)
-		ft_sort_tree();
-}
 
-void	ft_init(void)
-{
-	if (stack_a()->size == 3)
-		ft_algorithm();
-}
-
-int	main(int ac, char **av)
-{
-	if (ac > 2)
-		ft_build_stack(av);
-	else
-		ft_error();
-	return (0);
-}
