@@ -6,7 +6,7 @@
 /*   By: pvital-m <pvital-m@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/13 11:41:10 by pvital-m          #+#    #+#             */
-/*   Updated: 2023/05/13 11:41:44 by pvital-m         ###   ########.fr       */
+/*   Updated: 2023/05/13 18:13:32 by pvital-m         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,9 +31,4 @@ void	ft_build_stack(char **arguments)
 		}
 		i++;
 	}
-	stack_a()->size = ft_lstsize(stack_a()->head);
-	stack_b()->size = ft_lstsize(stack_b()->head);
-	ft_init();
-	ft_leaks_manager();
-	print_stacks();
 }

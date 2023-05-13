@@ -1,27 +1,23 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   declaration.c                                      :+:      :+:    :+:   */
+/*   information.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: pvital-m <pvital-m@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/05/13 18:37:52 by pvital-m          #+#    #+#             */
-/*   Updated: 2023/05/13 18:38:09 by pvital-m         ###   ########.fr       */
+/*   Created: 2023/05/13 17:28:12 by pvital-m          #+#    #+#             */
+/*   Updated: 2023/05/13 18:30:57 by pvital-m         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-t_stack	*stack_a(void)
+void	ft_data_updater(void)
 {
-	static t_stack	main;
-
-	return (&main);
-}
-
-t_stack	*stack_b(void)
-{
-	static t_stack	main;
-
-	return (&main);
+	stack_a()->size = ft_lstsize(stack_a()->head);
+	stack_a()->min = ft_getmin(stack_a()->head);
+	stack_a()->max = ft_getmax(stack_a()->head);
+	stack_b()->size = ft_lstsize(stack_b()->head);
+	stack_b()->min = ft_getmin(stack_b()->head);
+	stack_b()->max = ft_getmax(stack_b()->head);
 }

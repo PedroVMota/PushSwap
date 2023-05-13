@@ -1,49 +1,51 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   rotate.c                                           :+:      :+:    :+:   */
+/*   reverse_rotate.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: pvital-m <pvital-m@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/13 11:50:31 by pvital-m          #+#    #+#             */
-/*   Updated: 2023/05/13 13:12:08 by pvital-m         ###   ########.fr       */
+/*   Updated: 2023/05/13 14:48:28 by pvital-m         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../../includes/push_swap.h"
+#include "push_swap.h"
 
 /* Top goest to bottom, anti clock wise*/
-static void	ft_rotate(t_list **head)
+static void	ft_reverse_rotate(t_list **head)
 {
-	t_list	*temp;
-	t_list	*cur;
+	t_list	*current;
+	t_list	*penultimo;
+	t_list	*last;
 
-	temp = *head;
-	if (!head || !*head)
+	current = *head;
+	last = ft_lstlast(*head);
+	penultimo = *head;
+	if (last == current)
 		return ;
-	*head = (*head)->next;
-	cur = *head;
-	while (cur->next)
-		cur = cur->next;
-	cur->next = temp;
-	cur->next->next = NULL;
+	while (penultimo->next != last)
+		penultimo = penultimo->next;
+	*head = last;
+	last->next = current;
+	penultimo->next = NULL;
 }
 
-void	ft_ra(void)
+void	ft_rra(void)
 {
-	ft_rotate(&stack_a()->head);
-	printf("ra\n");
+	ft_reverse_rotate(&stack_a()->head);
+	printf("rra\n");
 }
 
-void	ft_rb(void)
+void	ft_rrb(void)
 {
-	ft_rotate(&stack_a()->head);
-	printf("ra\n");
+	ft_reverse_rotate(&stack_a()->head);
+	printf("rra\n");
 }
 
-void	ft_rr(void)
+void	ft_rrr(void)
 {
-	ft_rotate(&stack_a()->head);
-	ft_rotate(&stack_b()->head);
-	printf("rr\n");
+	ft_reverse_rotate(&stack_a()->head);
+	ft_reverse_rotate(&stack_b()->head);
+	printf("rrr\n");
 }
