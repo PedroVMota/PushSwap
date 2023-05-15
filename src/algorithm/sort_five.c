@@ -6,7 +6,7 @@
 /*   By: pvital-m <pvital-m@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/13 11:49:40 by pvital-m          #+#    #+#             */
-/*   Updated: 2023/05/13 20:28:49 by pvital-m         ###   ########.fr       */
+/*   Updated: 2023/05/15 15:55:48 by pvital-m         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,19 +50,27 @@ void	send_lownumbers(void)
 		ft_ra();
 	}
 	if (index == 3)
+	{
+		ft_rra();
+		ft_rra();
+	}
+	if (index == 4)
 		ft_rra();
 	ft_pb();
 }
 
 void	ft_stack_manager_five(void)
 {
+	int	first;
+	int	second;
+
 	send_lownumbers();
 	send_lownumbers();
-	print_stacks();
-	printf("\n");
+	first = *(int *)stack_b()->head->content;
+	second = *(int *)stack_b()->head->next->content;
 	ft_stack_manager_tree(&stack_a()->head);
-	printf("\n");
-	print_stacks();
+	if (first < second)
+		ft_sb();
 	ft_pa();
 	ft_pa();
 }

@@ -6,7 +6,7 @@
 /*   By: pvital-m <pvital-m@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/13 11:02:17 by pvital-m          #+#    #+#             */
-/*   Updated: 2023/05/13 20:20:49 by pvital-m         ###   ########.fr       */
+/*   Updated: 2023/05/15 15:54:20 by pvital-m         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,32 +32,21 @@ Once all passes are complete, stack_a will be sorted in ascending order.
 
 */
 
-int	ft_avg(t_list *tab, int lenth)
-{
-	int	sum;
-
-	sum = 0;
-	while (tab)
-	{
-		sum += *(int *)tab->content;
-		tab = tab->next;
-	}
-	return (sum / lenth);
-}
-
 void	ft_average_algorithm(void)
 {
-	int	average;
+	int	avg;
 
-	ft_data_updater();
-	while (stack_a()->size != 5)
+	while (ft_lstsize(stack_a()->head) > 5)
 	{
-		average = ft_avg(stack_a()->head, ft_lstsize(stack_a()->head));
-		if (*(int *)stack_a()->head->content < average)
+		avg = ft_avg(stack_a()->head, ft_lstsize(stack_a()->head));
+		if (*(int *)stack_a()->head->content < avg)
+		{
 			ft_pb();
+			if (*(int *)stack_b()->head->content < ft_avg(stack_b()->head, ft_lstsize(stack_b()->head)))
+				ft_rb();
+		}
 		else
-			ft_rra();
-		ft_data_updater();
+			ft_ra();
 	}
 	ft_stack_manager_five();
 }

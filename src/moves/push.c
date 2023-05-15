@@ -6,7 +6,7 @@
 /*   By: pvital-m <pvital-m@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/13 14:48:48 by pvital-m          #+#    #+#             */
-/*   Updated: 2023/05/13 15:22:31 by pvital-m         ###   ########.fr       */
+/*   Updated: 2023/05/15 15:51:39 by pvital-m         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,12 +35,12 @@ static int	ft_push_element(t_list **head, t_list **target)
 
 void	ft_pa(void)
 {
-	if (ft_push_element(&stack_b()->head, &stack_a()->head) == 0)
-		printf("pa\n");
+	ft_push_element(&stack_b()->head, &stack_a()->head);
+	write(1, "pa\n", 3);
 }
 
 void	ft_pb(void)
 {
-	if (ft_push_element(&stack_a()->head, &stack_b()->head) == 0)
-		printf("pb\n");
+	ft_push_element(&stack_a()->head, &stack_b()->head);
+	write(1, "pb\n", 3);
 }

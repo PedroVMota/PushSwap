@@ -6,7 +6,7 @@
 /*   By: pvital-m <pvital-m@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/11 02:02:56 by plopes-c          #+#    #+#             */
-/*   Updated: 2023/05/13 17:29:21 by pvital-m         ###   ########.fr       */
+/*   Updated: 2023/05/15 15:45:14 by pvital-m         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,6 +57,7 @@ void		ft_sb(void);
 
 int			ft_getmax(t_list *stack);
 int			ft_getmin(t_list *stack);
+int			ft_avg(t_list *tab, int lenth);
 
 // *_*_*_*_*_*_*_*_*_*_*_*_*_*_*_*_*_*_*_*_*_*_*_*_*_*_*_*_*_*_*_*_*_*_*_
 // Extra Functions used for debugging!

@@ -6,7 +6,7 @@
 /*   By: pvital-m <pvital-m@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/13 15:53:48 by pvital-m          #+#    #+#             */
-/*   Updated: 2023/05/13 17:31:45 by pvital-m         ###   ########.fr       */
+/*   Updated: 2023/05/15 15:45:24 by pvital-m         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -62,4 +62,17 @@ int	ft_getmin(t_list *stack)
 		stack = stack->next;
 	}
 	return (i);
+}
+
+int	ft_avg(t_list *tab, int lenth)
+{
+	int	sum;
+
+	sum = 0;
+	while (tab)
+	{
+		sum += *(int *)tab->content;
+		tab = tab->next;
+	}
+	return (sum / lenth);
 }
