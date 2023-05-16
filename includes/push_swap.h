@@ -6,7 +6,7 @@
 /*   By: pvital-m <pvital-m@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/11 02:02:56 by plopes-c          #+#    #+#             */
-/*   Updated: 2023/05/16 11:48:05 by pvital-m         ###   ########.fr       */
+/*   Updated: 2023/05/16 20:30:30 by pvital-m         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,19 +39,23 @@ typedef struct s_stack
 // *_*_*_*_*_*_*_*_*_*_*_*_*_*_*_*_*_*_*_*_*_*_*_*_*_*_*_*_*_*_*_*_*_*_*_
 t_stack		*stack_a(void);
 t_stack		*stack_b(void);
-void		ft_build_stack(char **arguments);
-void		ft_leaks_manager(void);
 void		ft_data_updater(void);
-void		set_best_buddy_init(t_stack *best_buddy);
+void		ft_build_stack(char **arguments);
+void		ft_put_top_a(t_list **lst, int index);
+void		ft_put_top_b(t_list **lst, int index);
 
 // *_*_*_*_*_*_*_*_*_*_*_*_*_*_*_*_*_*_*_*_*_*_*_*_*_*_*_*_*_*_*_*_*_*_*_
 // Algorithm Functions
 // *_*_*_*_*_*_*_*_*_*_*_*_*_*_*_*_*_*_*_*_*_*_*_*_*_*_*_*_*_*_*_*_*_*_*_
+void		ft_sort_tree(t_list **head);
+void	ft_sort_five(t_list **lst,
+					int witch);
+void		ft_cost_algorithm(void);
 
-//Sort number in stack a
-void		ft_stack_manager_tree(t_list **head);
-void		ft_stack_manager_five(void);
-//		Moviments
+// *_*_*_*_*_*_*_*_*_*_*_*_*_*_*_*_*_*_*_*_*_*_*_*_*_*_*_*_*_*_*_*_*_*_*_
+// Moviments for the Push Swap
+// *_*_*_*_*_*_*_*_*_*_*_*_*_*_*_*_*_*_*_*_*_*_*_*_*_*_*_*_*_*_*_*_*_*_*_
+
 void		ft_ra(void);
 void		ft_rb(void);
 void		ft_rr(void);
@@ -64,14 +68,18 @@ void		ft_sa(void);
 void		ft_sb(void);
 //		Moviments
 
-int			ft_getmax(t_list *stack);
-int			ft_getmin(t_list *stack);
-int			ft_avg(t_list *tab, int lenth);
-
 // *_*_*_*_*_*_*_*_*_*_*_*_*_*_*_*_*_*_*_*_*_*_*_*_*_*_*_*_*_*_*_*_*_*_*_
-// Extra Functions used for debugging!
+// Utils Functions to make the algorithm work
 // *_*_*_*_*_*_*_*_*_*_*_*_*_*_*_*_*_*_*_*_*_*_*_*_*_*_*_*_*_*_*_*_*_*_*_
-void		print_stacks(void);
-int			ft_sorted(t_list *example);
+int			ft_is_sorted(t_list *list);
+int			ft_get_index(int max, t_list *where);
+int			ft_max(t_list *lst);
+int			ft_min(t_list *lst);
+int			dynamic_average_list(t_list *stack);
+void		initialize_buddy_data(t_stack *cost_buddy, t_list **stack_a,
+				t_list **stack_b);
+int			dynamic_average_list(t_list *stack);
+int			ft_get_best_buddy(t_list **main, int current_number_in_b);
+int			ft_calculate_cost_up(int size, int index);
 
 #endif

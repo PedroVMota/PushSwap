@@ -1,28 +1,32 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   information.c                                      :+:      :+:    :+:   */
+/*   ft_sort_five.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: pvital-m <pvital-m@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/05/13 17:28:12 by pvital-m          #+#    #+#             */
-/*   Updated: 2023/05/16 20:34:35 by pvital-m         ###   ########.fr       */
+/*   Created: 2023/05/16 20:32:47 by pvital-m          #+#    #+#             */
+/*   Updated: 2023/05/16 20:32:58 by pvital-m         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void	ft_data_updater(void)
+void	ft_sort_five(t_list **lst, int witch)
 {
-	stack_a()->size = ft_lstsize(stack_a()->head);
-}
+	int	index_min;
 
-void	initialize_buddy_data(t_stack *cost_buddy, t_list **stack_a,
-		t_list **stack_b)
-{
-	cost_buddy->head = *stack_b;
-	cost_buddy->best = INT_MAX;
-	cost_buddy->index_nb = 0;
-	cost_buddy->size_b = ft_lstsize(*stack_b);
-	cost_buddy->size_a = ft_lstsize(*stack_a);
+	index_min = ft_get_index(ft_min(*lst), *lst);
+	if (witch == 1)
+		ft_put_top_a(lst, index_min);
+	ft_pb();
+	index_min = ft_get_index(ft_min(*lst), *lst);
+	if (witch == 1)
+		ft_put_top_a(lst, index_min);
+	ft_pb();
+	if (ft_is_sorted(stack_b()->head))
+		ft_sb();
+	ft_sort_tree(lst);
+	ft_pa();
+	ft_pa();
 }
