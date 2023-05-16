@@ -6,7 +6,7 @@
 /*   By: pvital-m <pvital-m@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/11 02:02:56 by plopes-c          #+#    #+#             */
-/*   Updated: 2023/05/15 15:45:14 by pvital-m         ###   ########.fr       */
+/*   Updated: 2023/05/16 10:09:54 by pvital-m         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,7 @@
 # define PUSH_SWAP_H
 
 # include "libft.h"
+# include <limits.h>
 # include <stdlib.h>
 
 // STACK LIST STRUCTURE
@@ -21,9 +22,15 @@ typedef struct s_stack
 {
 	t_list	*head;
 	int		size;
-	int		max;
-	int		min;
-
+	int		index_bf;
+	int		cost_bf;
+	int		cost_nb;
+	int		best;
+	int		final_bf;
+	int		final_nb;
+	int		index_nb;
+	int		size_b;
+	int		size_a;
 }			t_stack;
 
 // *_*_*_*_*_*_*_*_*_*_*_*_*_*_*_*_*_*_*_*_*_*_*_*_*_*_*_*_*_*_*_*_*_*_*_
@@ -34,6 +41,8 @@ t_stack		*stack_b(void);
 void		ft_build_stack(char **arguments);
 void		ft_leaks_manager(void);
 void		ft_data_updater(void);
+void		set_best_buddy_init(t_stack *best_buddy, t_list **stack_a,
+				t_list **stack_b);
 
 // *_*_*_*_*_*_*_*_*_*_*_*_*_*_*_*_*_*_*_*_*_*_*_*_*_*_*_*_*_*_*_*_*_*_*_
 // Algorithm Functions
