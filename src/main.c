@@ -6,24 +6,61 @@
 /*   By: pvital-m <pvital-m@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/13 11:02:17 by pvital-m          #+#    #+#             */
-/*   Updated: 2023/05/16 10:09:29 by pvital-m         ###   ########.fr       */
+/*   Updated: 2023/05/16 12:22:05 by pvital-m         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/push_swap.h"
 
-int	**best_friends_get_data(t_list *a, t_list *b)
+//Calculates de number of the steps that takes the current number to the top;
+int	ft_calculate_cost_up(int size, int index)
 {
+	int	counter;
+
+	counter = 0;
+	if (index <= (size / 2))
+	{
+		counter = index;
+	}
+	else if (index > (size / 2))
+		counter = size - index;
+	return (counter);
+}
+
+int	get_best_friend(void)
+{
+	t_list	*local;
+	int		counter;
+	int		best_slave;
+	int		tmp_score;
+
+	best_slave = INT_MAX;
+	counter = INT_MAX;
+	local = stack_a()->head;
+	while (stack_a()->head)
+	{
+		stack_a()->head = stack_a()->head->content;
+	}
 }
 
 void	best_friends_sorting(void)
 {
-	t_stack buddy;
-	
-	set_best_buddy_init(&buddy, &stack_a()->head, &stack_b()->head);
-	
+	t_stack	buddy;
+
+	set_best_buddy_init(&buddy);
+	while (stack_b()->head)
+	{
+		buddy.index_bf = get_best_friend();
+		while (buddy.index_bf != -1)
+		{
+		}
+		print_stacks();
+	}
 }
 
+//This function i'll check each number of the stack a
+//if the current number, is below the current the mean
+//of his stack then push b, otherwise rotate
 void	ft_average_algorithm(void)
 {
 	int	avg;
@@ -43,6 +80,8 @@ void	ft_average_algorithm(void)
 		ft_data_updater();
 	}
 	ft_data_updater();
+	while (stack_b()->head)
+		best_friends_sorting();
 }
 
 void	ft_init(void)
