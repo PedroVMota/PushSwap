@@ -6,7 +6,7 @@
 /*   By: pvital-m <pvital-m@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/11 02:02:56 by plopes-c          #+#    #+#             */
-/*   Updated: 2023/05/16 20:30:30 by pvital-m         ###   ########.fr       */
+/*   Updated: 2023/05/17 16:34:54 by pvital-m         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,7 @@
 
 # include "libft.h"
 # include <limits.h>
+# include <stdbool.h>
 # include <stdlib.h>
 
 // STACK LIST STRUCTURE
@@ -43,6 +44,7 @@ void		ft_data_updater(void);
 void		ft_build_stack(char **arguments);
 void		ft_put_top_a(t_list **lst, int index);
 void		ft_put_top_b(t_list **lst, int index);
+void		ft_leaks_manager(void);
 
 // *_*_*_*_*_*_*_*_*_*_*_*_*_*_*_*_*_*_*_*_*_*_*_*_*_*_*_*_*_*_*_*_*_*_*_
 // Algorithm Functions
@@ -51,6 +53,7 @@ void		ft_sort_tree(t_list **head);
 void	ft_sort_five(t_list **lst,
 					int witch);
 void		ft_cost_algorithm(void);
+void		ft_sort_four(t_list **lst);
 
 // *_*_*_*_*_*_*_*_*_*_*_*_*_*_*_*_*_*_*_*_*_*_*_*_*_*_*_*_*_*_*_*_*_*_*_
 // Moviments for the Push Swap
@@ -81,5 +84,10 @@ void		initialize_buddy_data(t_stack *cost_buddy, t_list **stack_a,
 int			dynamic_average_list(t_list *stack);
 int			ft_get_best_buddy(t_list **main, int current_number_in_b);
 int			ft_calculate_cost_up(int size, int index);
-
+void		error_section(void);
+void		split_clear(char **split);
+void		print_stacks(void);
+int			is_correct_input(char **av);
+int			is_sign(char c);
+int			nbstr_cmp(const char *s1, const char *s2);
 #endif

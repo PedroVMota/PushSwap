@@ -6,7 +6,7 @@
 /*   By: pvital-m <pvital-m@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/13 11:02:17 by pvital-m          #+#    #+#             */
-/*   Updated: 2023/05/16 19:48:43 by pvital-m         ###   ########.fr       */
+/*   Updated: 2023/05/17 17:24:25 by pvital-m         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,13 +31,13 @@ int	ft_is_sorted(t_list *list)
 void	ft_init(void)
 {
 	ft_data_updater();
-	if (ft_is_sorted(stack_a()->head))
-		return ;
 	if (stack_a()->size == 2)
 	{
 		if (!ft_is_sorted(stack_a()->head))
 			ft_sa();
 	}
+	if (stack_a()->size == 4)
+		ft_sort_four(&stack_a()->head);
 	else if (stack_a()->size == 3)
 		ft_sort_tree(&stack_a()->head);
 	else if (stack_a()->size == 5)
@@ -49,15 +49,21 @@ void	ft_init(void)
 // This is main, i don't think i do need to explain what does
 int	main(int ac, char **av)
 {
-	if (ac > 1)
+	char	**split;
+
+	if (ac == 2)
 	{
-		ft_build_stack(av);
+		split = ft_split(av[1], ' ');
+		ft_build_stack(split);
+		ft_init();
+		split_clear(split);
+	}
+	else if (ac > 2)
+	{
+		ft_build_stack(&av[1]);
 		ft_init();
 	}
 	else
-	{
-		ft_printf("Error\n");
-		return (1);
-	}
+		error_section();
 	return (0);
 }
