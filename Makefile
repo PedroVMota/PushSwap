@@ -6,7 +6,7 @@
 #    By: pvital-m <pvital-m@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/03/03 14:41:56 by chales            #+#    #+#              #
-#    Updated: 2023/05/18 14:24:32 by pvital-m         ###   ########.fr        #
+#    Updated: 2023/05/18 18:06:44 by pvital-m         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -20,7 +20,7 @@ OBJS = $(SRCS:.c=.o)
 
 INCLUDES = -I libft/libft_includes -I includes
 
-CFLAGS = -g -Wall -Wextra -Werror -fsanitize=address -fsanitize=address $(INCLUDES)
+CFLAGS = -g -Wall -Wextra -Werror $(INCLUDES)   #-fsanitize=address -fsanitize=leaks 
 
 RM = rm -fr
 

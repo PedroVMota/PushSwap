@@ -6,7 +6,7 @@
 /*   By: pvital-m <pvital-m@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/13 11:02:17 by pvital-m          #+#    #+#             */
-/*   Updated: 2023/05/18 12:21:41 by pvital-m         ###   ########.fr       */
+/*   Updated: 2023/05/18 18:02:04 by pvital-m         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,7 +31,7 @@ int	ft_is_sorted(t_list *list)
 void	ft_init(void)
 {
 	ft_data_updater();
-	if(ft_is_sorted(stack_a()->head))
+	if (ft_is_sorted(stack_a()->head))
 		return ;
 	if (stack_a()->size == 2)
 	{
@@ -46,26 +46,18 @@ void	ft_init(void)
 		ft_sort_five(&stack_a()->head, 1);
 	else if (stack_a()->size >= 6)
 		ft_cost_algorithm();
+	ft_leaks_manager();
 }
 
 // This is main, i don't think i do need to explain what does
 int	main(int ac, char **av)
 {
-	char	**split;
-
-	if (ac == 2)
-	{
-		split = ft_split(av[1], ' ');
-		ft_build_stack(split);
-		ft_init();
-		split_clear(split);
-	}
-	else if (ac > 2)
+	if (ac > 2)
 	{
 		ft_build_stack(&av[1]);
 		ft_init();
 	}
 	else
-		error_section();
+		error_section(NULL);
 	return (0);
 }

@@ -6,7 +6,7 @@
 /*   By: pvital-m <pvital-m@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/13 17:28:12 by pvital-m          #+#    #+#             */
-/*   Updated: 2023/05/17 17:01:39 by pvital-m         ###   ########.fr       */
+/*   Updated: 2023/05/18 17:14:46 by pvital-m         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,9 +27,10 @@ void	initialize_buddy_data(t_stack *cost_buddy, t_list **stack_a,
 	cost_buddy->size_a = ft_lstsize(*stack_a);
 }
 
-
-void error_section(void)
+void	error_section(void *number)
 {
+	if (number)
+		free(number);
 	ft_lstclear(&stack_a()->head, free);
 	ft_lstclear(&stack_b()->head, free);
 	ft_printf("Error\n");

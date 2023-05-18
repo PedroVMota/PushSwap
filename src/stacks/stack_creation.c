@@ -6,37 +6,31 @@
 /*   By: pvital-m <pvital-m@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/13 11:41:10 by pvital-m          #+#    #+#             */
-/*   Updated: 2023/05/18 15:18:32 by pvital-m         ###   ########.fr       */
+/*   Updated: 2023/05/18 17:55:12 by pvital-m         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../includes/push_swap.h"
 
-int	ft_is_all_number(char *s)
+int	ft_wierd(char *s)
 {
-	int	i;
+	unsigned int	i;
 
-	i = -1;
-	while (s[++i])
-		if (!ft_isdigit(s[i]))
-			break;
-	if(s[i] == '\0')
-		return 0;
-	return (1);
-}
-
-int	ft_limitations(long int number)
-{
-	if (number >= INT_MIN && number <= INT_MAX)
-		return (0);
-	return (1);
+	i = 0;
+	if (s[i] == '+' || s[i] == '-')
+		i++;
+	while (ft_isdigit(s[i]))
+		i++;
+	if (s[i] == 0 && i > 0)
+		return (false);
+	return (true);
 }
 
 bool	ft_has_duplicate(t_list *stack, int num)
 {
+	ft_data_updater();
 	if (!stack)
 		return (0);
-	ft_data_updater();
 	if (ft_lstsize(stack) <= 0)
 		return (0);
 	while (stack)
@@ -50,27 +44,27 @@ bool	ft_has_duplicate(t_list *stack, int num)
 
 void	ft_build_stack(char **arguments)
 {
-	int i;
-	long *tmp;
+	int		i;
+	long	*tmp;
 
 	i = 0;
-	tmp = NULL;
-
 	while (arguments[i])
 	{
-		if (ft_is_all_number(arguments[i]))
+		if (ft_wierd(arguments[i]) == true)
 		{
-			error_section();
+			error_section(NULL);
 			exit(1);
 		}
 		tmp = (long *)malloc(sizeof(long));
-		if (!tmp)
-			return ;
 		*tmp = ft_atoi(arguments[i]);
-		if (ft_has_duplicate(stack_a()->head, *(int *)tmp)
-			|| ft_limitations(*tmp))
+		if (!tmp || *tmp < INT_MIN || *tmp > INT_MAX)
 		{
-			error_section();
+			error_section(NULL);
+			exit(1);
+		}
+		if (ft_has_duplicate(stack_a()->head, *tmp))
+		{
+			error_section(NULL);
 			exit(1);
 		}
 		ft_lstadd_back(&stack_a()->head, ft_lstnew(tmp));

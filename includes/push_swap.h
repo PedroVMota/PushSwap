@@ -6,7 +6,7 @@
 /*   By: pvital-m <pvital-m@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/11 02:02:56 by plopes-c          #+#    #+#             */
-/*   Updated: 2023/05/17 19:53:13 by pvital-m         ###   ########.fr       */
+/*   Updated: 2023/05/18 17:23:46 by pvital-m         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,8 @@
 # include <limits.h>
 # include <stdbool.h>
 # include <stdlib.h>
+
+# define HERE write(1, "Here\n", 5);
 
 // STACK LIST STRUCTURE
 typedef struct s_stack
@@ -84,7 +86,7 @@ void		initialize_buddy_data(t_stack *cost_buddy, t_list **stack_a,
 int			dynamic_average_list(t_list *stack);
 int			ft_get_best_buddy(t_list **main, int current_number_in_b);
 int			ft_calculate_cost_up(int size, int index);
-void		error_section(void);
+void		error_section(void *number);
 void		split_clear(char **split);
 void		print_stacks(void);
 int			is_correct_input(char **av);
