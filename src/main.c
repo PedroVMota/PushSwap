@@ -6,7 +6,7 @@
 /*   By: pvital-m <pvital-m@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/13 11:02:17 by pvital-m          #+#    #+#             */
-/*   Updated: 2023/05/18 18:02:04 by pvital-m         ###   ########.fr       */
+/*   Updated: 2023/05/18 18:33:21 by pvital-m         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,12 +52,12 @@ void	ft_init(void)
 // This is main, i don't think i do need to explain what does
 int	main(int ac, char **av)
 {
-	if (ac > 2)
+	if (ac > 1)
 	{
 		ft_build_stack(&av[1]);
 		ft_init();
 	}
 	else
-		error_section(NULL);
+		write(1, "\n", 1);
 	return (0);
 }

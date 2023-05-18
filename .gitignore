@@ -1,6 +1,7 @@
 */*/*.o
 */*.o
-*/*.o
+*.o
 
-./.vscode
-./push_swap
+.vscode
+push_swap
+push_swap_tester/
