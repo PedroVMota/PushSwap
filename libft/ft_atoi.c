@@ -6,23 +6,21 @@
 /*   By: pvital-m <pvital-m@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/27 17:23:43 by plopes-c          #+#    #+#             */
-/*   Updated: 2023/05/17 15:52:14 by pvital-m         ###   ########.fr       */
+/*   Updated: 2023/05/18 12:20:21 by pvital-m         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int	ft_atoi(const char *nptr)
+long	ft_atoi(const char *nptr)
 {
 	int	i;
 	int	s;
-	int	nbr;
+	long	nbr;
 
 	i = 0;
 	s = 1;
 	nbr = 0;
-	if (!ft_strncmp(nptr, "-2147483648", 11))
-		return (-2147483648);
 	while (nptr[i] == ' ' || (nptr[i] >= 9 && nptr[i] <= 13))
 		i++;
 	if (nptr[i] == '+' || nptr[i] == '-')

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   libft.h                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: plopes-c <plopes-c@student.42.fr>          +#+  +:+       +#+        */
+/*   By: pvital-m <pvital-m@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/27 19:07:46 by plopes-c          #+#    #+#             */
-/*   Updated: 2023/05/11 01:37:48 by plopes-c         ###   ########.fr       */
+/*   Updated: 2023/05/18 12:20:34 by pvital-m         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@ typedef struct s_list
 	struct s_list	*next;
 }					t_list;
 
-int		ft_atoi(const char *nptr);
+long		ft_atoi(const char *nptr);
 void	ft_bzero(void *s, int n);
 void	*ft_calloc(size_t nmemb, size_t size);
 int		ft_isalnum(int c);

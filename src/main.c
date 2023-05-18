@@ -6,7 +6,7 @@
 /*   By: pvital-m <pvital-m@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/13 11:02:17 by pvital-m          #+#    #+#             */
-/*   Updated: 2023/05/17 17:24:25 by pvital-m         ###   ########.fr       */
+/*   Updated: 2023/05/18 12:21:41 by pvital-m         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,6 +31,8 @@ int	ft_is_sorted(t_list *list)
 void	ft_init(void)
 {
 	ft_data_updater();
+	if(ft_is_sorted(stack_a()->head))
+		return ;
 	if (stack_a()->size == 2)
 	{
 		if (!ft_is_sorted(stack_a()->head))
