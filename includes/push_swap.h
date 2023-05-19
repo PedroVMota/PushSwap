@@ -6,7 +6,7 @@
 /*   By: pvital-m <pvital-m@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/11 02:02:56 by plopes-c          #+#    #+#             */
-/*   Updated: 2023/05/18 17:23:46 by pvital-m         ###   ########.fr       */
+/*   Updated: 2023/05/19 15:13:42 by pvital-m         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,21 +18,19 @@
 # include <stdbool.h>
 # include <stdlib.h>
 
-# define HERE write(1, "Here\n", 5);
-
 // STACK LIST STRUCTURE
 typedef struct s_stack
 {
 	t_list	*head;
 	int		mean;
 	int		size;
-	int		index_bf;
-	int		cost_bf;
-	int		cost_nb;
+	int		best_friend_stack_index;
+	int		cost_of_best_friend;
+	int		cost_of_number;
 	int		best;
-	int		final_bf;
-	int		final_nb;
-	int		index_nb;
+	int		final_best_friend;
+	int		final_number;
+	int		index_number;
 	int		size_b;
 	int		size_a;
 }			t_stack;
@@ -52,8 +50,8 @@ void		ft_leaks_manager(void);
 // Algorithm Functions
 // *_*_*_*_*_*_*_*_*_*_*_*_*_*_*_*_*_*_*_*_*_*_*_*_*_*_*_*_*_*_*_*_*_*_*_
 void		ft_sort_tree(t_list **head);
-void	ft_sort_five(t_list **lst,
-					int witch);
+void		ft_sort_five(t_list **lst,
+				int witch);
 void		ft_cost_algorithm(void);
 void		ft_sort_four(t_list **lst);
 

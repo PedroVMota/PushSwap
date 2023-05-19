@@ -6,7 +6,7 @@
 /*   By: pvital-m <pvital-m@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/13 11:02:17 by pvital-m          #+#    #+#             */
-/*   Updated: 2023/05/19 13:16:39 by pvital-m         ###   ########.fr       */
+/*   Updated: 2023/05/19 14:36:36 by pvital-m         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,6 +28,8 @@ int	ft_is_sorted(t_list *list)
 void	ft_init(void)
 {
 	ft_data_updater();
+	if (stack_a()->size == 1)
+		return ;
 	if (ft_is_sorted(stack_a()->head))
 		return ;
 	if (stack_a()->size == 2)
@@ -54,6 +56,7 @@ int	main(int ac, char **av)
 		ft_init();
 	}
 	else
-		write(1, "./push_swap {list of numbers}\n", 30);
+		write(2, "./push_swap  9 8 7 6 5 4 3 2 1 0, for example\n", 46);
+	ft_leaks_manager();
 	return (0);
 }

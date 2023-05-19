@@ -6,7 +6,7 @@
 /*   By: pvital-m <pvital-m@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/27 17:23:43 by plopes-c          #+#    #+#             */
-/*   Updated: 2023/05/18 12:20:21 by pvital-m         ###   ########.fr       */
+/*   Updated: 2023/05/19 15:13:49 by pvital-m         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,8 +14,8 @@
 
 long	ft_atoi(const char *nptr)
 {
-	int	i;
-	int	s;
+	int		i;
+	int		s;
 	long	nbr;
 
 	i = 0;

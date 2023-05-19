@@ -6,7 +6,7 @@
 /*   By: pvital-m <pvital-m@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/16 20:32:47 by pvital-m          #+#    #+#             */
-/*   Updated: 2023/05/17 15:46:18 by pvital-m         ###   ########.fr       */
+/*   Updated: 2023/05/19 15:13:55 by pvital-m         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,6 @@ void	ft_sort_four(t_list **lst)
 		ft_sb();
 	ft_pa();
 	ft_pa();
-	
 }
 
 void	ft_sort_five(t_list **lst, int witch)

@@ -6,7 +6,7 @@
 /*   By: pvital-m <pvital-m@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/16 19:56:33 by pvital-m          #+#    #+#             */
-/*   Updated: 2023/05/16 20:32:32 by pvital-m         ###   ########.fr       */
+/*   Updated: 2023/05/19 15:50:58 by pvital-m         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,8 +14,8 @@
 
 void	ft_make_the_moves(t_stack *budd, t_list **main, t_list **secondary)
 {
-	ft_put_top_a(main, budd->final_bf);
-	ft_put_top_b(secondary, budd->final_nb);
+	ft_put_top_a(main, budd->final_best_friend);
+	ft_put_top_b(secondary, budd->final_number);
 	ft_pa();
 }
 
@@ -47,18 +47,21 @@ void	best_buddy_sort(t_list **main, t_list **secondary)
 	initialize_buddy_data(&buddy, main, secondary);
 	while (*secondary)
 	{
-		buddy.index_bf = ft_get_best_buddy(main, *(int *)(*secondary)->content);
-		buddy.cost_bf = ft_calculate_cost_up(buddy.size_a, buddy.index_bf);
-		buddy.cost_nb = ft_calculate_cost_up(buddy.size_b, buddy.index_nb);
-		if ((buddy.cost_bf + buddy.cost_nb) < buddy.best && (buddy.cost_bf
-				+ buddy.cost_nb) >= 0)
+		buddy.best_friend_stack_index = ft_get_best_buddy(main,
+				*(int *)(*secondary)->content);
+		buddy.cost_of_best_friend = ft_calculate_cost_up(buddy.size_a,
+				buddy.best_friend_stack_index);
+		buddy.cost_of_number = ft_calculate_cost_up(buddy.size_b,
+				buddy.index_number);
+		if ((buddy.cost_of_best_friend + buddy.cost_of_number) < buddy.best
+			&& (buddy.cost_of_best_friend + buddy.cost_of_number) >= 0)
 		{
-			buddy.final_nb = buddy.index_nb;
-			buddy.final_bf = buddy.index_bf;
-			buddy.best = buddy.cost_nb + buddy.cost_bf;
+			buddy.final_number = buddy.index_number;
+			buddy.final_best_friend = buddy.best_friend_stack_index;
+			buddy.best = buddy.cost_of_number + buddy.cost_of_best_friend;
 		}
 		(*secondary) = (*secondary)->next;
-		buddy.index_nb++;
+		buddy.index_number++;
 	}
 	*secondary = buddy.head;
 	ft_make_the_moves(&buddy, main, secondary);
