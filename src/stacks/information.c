@@ -6,7 +6,7 @@
 /*   By: pvital-m <pvital-m@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/13 17:28:12 by pvital-m          #+#    #+#             */
-/*   Updated: 2023/05/18 18:33:16 by pvital-m         ###   ########.fr       */
+/*   Updated: 2023/05/19 13:11:19 by pvital-m         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,5 +33,6 @@ void	error_section(void *number)
 		free(number);
 	ft_lstclear(&stack_a()->head, free);
 	ft_lstclear(&stack_b()->head, free);
-	write(1, "Error\n", 6);
+	write(1, "Error", 6);
+	write(1, "\n", 1);
 }

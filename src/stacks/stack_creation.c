@@ -6,7 +6,7 @@
 /*   By: pvital-m <pvital-m@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/13 11:41:10 by pvital-m          #+#    #+#             */
-/*   Updated: 2023/05/18 17:55:12 by pvital-m         ###   ########.fr       */
+/*   Updated: 2023/05/19 13:10:44 by pvital-m         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,19 +53,19 @@ void	ft_build_stack(char **arguments)
 		if (ft_wierd(arguments[i]) == true)
 		{
 			error_section(NULL);
-			exit(1);
+			exit(0);
 		}
 		tmp = (long *)malloc(sizeof(long));
 		*tmp = ft_atoi(arguments[i]);
 		if (!tmp || *tmp < INT_MIN || *tmp > INT_MAX)
 		{
 			error_section(NULL);
-			exit(1);
+			exit(0);
 		}
 		if (ft_has_duplicate(stack_a()->head, *tmp))
 		{
 			error_section(NULL);
-			exit(1);
+			exit(0);
 		}
 		ft_lstadd_back(&stack_a()->head, ft_lstnew(tmp));
 		i++;

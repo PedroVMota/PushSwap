@@ -6,17 +6,16 @@
 /*   By: pvital-m <pvital-m@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/13 11:02:17 by pvital-m          #+#    #+#             */
-/*   Updated: 2023/05/18 18:33:21 by pvital-m         ###   ########.fr       */
+/*   Updated: 2023/05/19 13:16:39 by pvital-m         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/push_swap.h"
 
-// This function will return 1 if sorted
 int	ft_is_sorted(t_list *list)
 {
 	if (!list)
-		return (1);
+		return (0);
 	while (list->next)
 	{
 		if (*(int *)list->next->content < *(int *)list->content)
@@ -26,8 +25,6 @@ int	ft_is_sorted(t_list *list)
 	return (1);
 }
 
-//	This function will handle the number and will choose whitch
-//	algorithm to use
 void	ft_init(void)
 {
 	ft_data_updater();
@@ -49,7 +46,6 @@ void	ft_init(void)
 	ft_leaks_manager();
 }
 
-// This is main, i don't think i do need to explain what does
 int	main(int ac, char **av)
 {
 	if (ac > 1)
@@ -58,6 +54,6 @@ int	main(int ac, char **av)
 		ft_init();
 	}
 	else
-		write(1, "\n", 1);
+		write(1, "./push_swap {list of numbers}\n", 30);
 	return (0);
 }
