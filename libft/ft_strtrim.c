@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_strtrim.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: plopes-c <plopes-c@student.42.fr>          +#+  +:+       +#+        */
+/*   By: pvital-m <pvital-m@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/02 17:56:00 by plopes-c          #+#    #+#             */
-/*   Updated: 2022/11/08 20:34:33 by plopes-c         ###   ########.fr       */
+/*   Updated: 2023/05/19 15:56:50 by pvital-m         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,3 +29,4 @@ char	*ft_strtrim(char const *s1, char const *set)
 	str = ft_substr(s1, (unsigned int)i, (len - i));
 	return (str);
 }
+
