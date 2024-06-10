@@ -1,39 +1,75 @@
+# Push Swap Documentation
 
-## Push Swap
+## Overview
 
-> Because Swap_push isn’t as natural
+Push Swap is a program designed to sort a stack of integers using a minimal number of operations. The sorting is performed using two stacks, named `a` and `b`, and a set of predefined operations.
 
+### Initial Conditions
 
-__You have 2 stacks named a and b.__
+- `stack a`: Contains a random number of negative and/or positive integers, which are all unique.
+- `stack b`: Initially empty.
 
-+ At the beginning:
-+ The __stack a__ contains a random amount of negative and/or positive numbers  which cannot be duplicated.
-+ The __stack b__ is empty. The goal is to sort in ascending order numbers into __stack a__. To do so you have the following operations at your disposal:
-* __sa__ (swap a): Swap the first 2 elements at the top of stack a.Do nothing if there is only one or no elements.
-* __sb__ (swap b): Swap the first 2 elements at the top of stack b. Do nothing if there is only one or no elements.
-* __ss__ : sa and sb at the same time.
-* __pa__ (push a): Take the first element at the top of b and put it at the top of a. Do nothing if b is empty.
-* __pb__ (push b): Take the first element at the top of a and put it at the top of b. Do nothing if a is empty.
-* __ra__ (rotate a): Shift up all elements of stack a by 1. The first element becomes the last one.
-* __rb__ (rotate b): Shift up all elements of stack b by 1. The first element becomes the last one.
-* __rr__ : ra and rb at the same time.
-* __rra__ (reverse rotate a): Shift down all elements of stack a by 1. The last element becomes the first one.
-* __rrb__ (reverse rotate b): Shift down all elements of stack b by 1. The last element becomes the first one.
-* __rrr__ : rra and rrb at the same time.
+### Goal
 
-The program must print the moviments for the shortest path to sort the list
+Sort the integers in `stack a` in ascending order using the shortest sequence of operations.
 
-## How to install and use it?
+### Operations
 
-    1. Clone
-    2. cd PushSwap
-    3. make
+You have the following operations at your disposal:
 
-Those are the command that you have to use it, the next step is giving the arguments. for that here is an example how can you do it.
+- `sa` (swap a): Swap the first 2 elements at the top of `stack a`. Do nothing if there is only one or no elements.
+- `sb` (swap b): Swap the first 2 elements at the top of `stack b`. Do nothing if there is only one or no elements.
+- `ss`: Perform `sa` and `sb` at the same time.
+- `pa` (push a): Take the first element at the top of `stack b` and put it at the top of `stack a`. Do nothing if `stack b` is empty.
+- `pb` (push b): Take the first element at the top of `stack a` and put it at the top of `stack b`. Do nothing if `stack a` is empty.
+- `ra` (rotate a): Shift up all elements of `stack a` by 1. The first element becomes the last one.
+- `rb` (rotate b): Shift up all elements of `stack b` by 1. The first element becomes the last one.
+- `rr`: Perform `ra` and `rb` at the same time.
+- `rra` (reverse rotate a): Shift down all elements of `stack a` by 1. The last element becomes the first one.
+- `rrb` (reverse rotate b): Shift down all elements of `stack b` by 1. The last element becomes the first one.
+- `rrr`: Perform `rra` and `rrb` at the same time.
 
-```sh
-    ./push_swap {numbers} >>> This is an example.
+### Compilation and Usage
+
+#### Prerequisites
+
+Before you can compile and run Push Swap, ensure you have the necessary dependencies installed:
+- A C compiler (e.g., `gcc`)
+- `make` utility
+
+#### Steps to Compile and Run
+
+1. **Clone the Repository**
+
+    ```sh
+    git clone <repository-url>
+    ```
+
+2. **Navigate to the Project Directory**
+
+    ```sh
+    cd PushSwap
+    ```
+
+3. **Compile the Program**
+
+    Use the `make` command to compile the program.
+
+    ```sh
+    make
+    ```
+
+4. **Run the Program**
+
+    Pass the list of integers you want to sort as arguments to the `push_swap` executable. Here is an example:
+
+    ```sh
     ./push_swap 8 6 5 2 0 1
+    ```
+
+    The program will output the sequence of operations needed to sort the list. Example output:
+
+    ```sh
     ra
     ra
     ra
@@ -49,20 +85,45 @@ Those are the command that you have to use it, the next step is giving the argum
     pa
     rra
     rra
-```
+    ```
 
-This how the program should behave in his best!
+### Makefile
 
-## Algorithm used.
+The `Makefile` automates the build process. It includes targets to compile the program and clean up the compiled files.
 
-The first steps are to make a small hardcoded algorithm for 3. We know for 3 values the mas cases we can get are 5. For five numbers we have 120 posibilities. I'll give you timme to think about it!
+#### Common Targets
 
-Now the main problem is for more than 5 numbers. Here i dicide to search a bit about used algorithm after more or less 7 fails trying to create my own algorithm.
+- `make`: Compiles the program.
+- `make clean`: Removes compiled object files and the executable.
 
-So, I decide to the the __Cost Algorithm__ one of the first steps is to get the Average value of the stack. in the mean time i check if the current number of the stack A is below the average if yes push to b otherwise rotate. I'll do this until the size stack A stays 5 and then i use my five algorithm to sort.
+### Example Usage
 
-#### Now the best friends part.
+Here’s an example of how the program should behave:
 
-I will use the example of a stack like this 
+1. **Input**
 
-Stack A: | 1 | 4 | 5 | 21 | 52 |
+    ```sh
+    ./push_swap 8 6 5 2 0 1
+    ```
+
+2. **Output**
+
+    ```sh
+    ra
+    ra
+    ra
+    pb
+    pb
+    pb
+    sa
+    rra
+    pa
+    pa
+    ra
+    ra
+    pa
+    rra
+    rra
+    ```
+
+This example shows the sequence of operations to sort the input list `[8, 6, 5, 2, 0, 1]` into ascending order.
